@@ -1,0 +1,42 @@
+<!--<h2 *structure="display">Hello Angular JS</h2>-->
+<button (click)="change()">Change</button>
+<ng-template [structure]="display">
+  <h1>
+      <h1>Hello Angular</h1>
+  </h1>
+</ng-template>
+<p>Hello Attribute Directive</p>
+
+
+<!--Note : Ng template take only Reference not a  Content if you want container you need to driven it into container-->
+<div>
+    <h3>This is angular js 
+    <ng-template>How can i help u sir</ng-template>
+    <ng-container>How r u deva</ng-container></h3>
+</div>
+
+<!--Example for ngTemplateOutlet if we do like this we can acces the content of ngTemplate-->
+
+<div>
+    <h3>This is angular js <ng-template #template>How can i help u sir</ng-template>
+    <ng-container *ngTemplateOutlet="template"></ng-container></h3>
+</div>
+
+<!--Example for context-->
+
+<div>
+    <h3>This is angular js <ng-template #template1 let-y let-x="name">How can i help u {{y}} {{x}}</ng-template>
+    <ng-container *ngTemplateOutlet="template1;context:tempContext"></ng-container></h3>
+</div>
+
+
+<table>
+    <tbody>
+        <tr *ngFor="let name of names">
+            <ng-container *ngIf="name.Lang=='Hindi'">
+                <td>{{name.Lang}}</td>
+            </ng-container>
+            
+        </tr>
+    </tbody>
+</table>

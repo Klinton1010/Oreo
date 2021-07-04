@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+</head>
+<body>
+<div class="container-fluid s1">
+   <div class="row">
+      <div class="col-md-4 jumbotron">         
+        <form ngForm #f="ngForm" name="form" (ngSubmit)="submit(f)" autocomplete="off">
+            <div class="form-group">
+              <label>Student Name:</label>
+              <input [(ngModel)]="student.sname" name="sname" type="text" class="form-control" id="sname">
+            </div>
+
+            <div class="form-group">
+                <label>Student Age:</label>
+                <input [(ngModel)]="student.age" name="age"type="text" class="form-control" id="sage">
+            </div>
+
+            <div class="form-group">
+                <label>Course:</label>
+                <!--<input [(ngModel)]="student.course" name="course" type="text" class="form-control" id="scourse">-->
+                <select [(ngModel)]="student.course" name="course" type="text" class="form-control" id="scourse">
+                  <option selected>Choose...</option>
+                  <option value="C">C</option>
+                  <option value="Java">Java</option>
+                  <option value="C#">C#</option>
+                  <option value="Python">Python</option>
+                  <option value="SQL">SQL</option>
+                  <option value="Manual Testing">Manual Testing</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile No:</label>
+                <input [(ngModel)]="student.mobile" name="mobile" type="text" class="form-control" id="smobile">
+            </div>
+
+            <div class="form-group">
+                <label>City:</label>
+                <input [(ngModel)]="student.city" name="city" type="text" class="form-control" id="scity">
+            </div>
+            <button type="submit" class="btn btn-primary mt-2">{{isEdit?'Update':'Create'}}</button>
+        </form>
+       </div>
+       <div class="col-md-8">
+         <p>Total Records:{{totalRecords}}</p>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Edit</th>
+                <th>Student Name</th>
+                <th>Student Age</th>
+                <th>Course</th>
+                <th>Mobile</th>
+                <th>City</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let student of studentList">
+              <tr>
+                <td><button type="button" class="btn btn-warning" (click)='editme(student)'>Edit</button></td>
+              <td>{{student.sname}}</td>
+              <td>{{student.age}}</td>
+              <td>{{student.course}}</td>
+              <td>{{student.mobile}}</td>
+              <td>{{student.city}}</td>
+              <td><button type="button" class="btn btn-danger" (click)='delete(student)'>Delete</button></td>
+            </tr>
+
+              
+            </tbody>
+          </table>
+       </div>
+   </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,51 @@
+Step 1
+-------
+Create a Bootstrap form
+
+step 2
+-------
+Create a student Model based on sql fields
+export class studentModel
+{
+  id:any;
+  sname?:string;
+  age:any;
+  course?:string;
+  mobile?:string;
+  city?:string;
+}
+
+step 3
+------
+create a service
+
+step 4
+------
+In Html form use ng model and map it to created model
+create class for model before using it in form
+
+example
+<div class="form-group">
+    <label for="age">Student Age:</label>
+    <input [(ngModel)]="student.age" name="age"type="text" class="form-control" id="sage">
+</div>
+
+step=5
+-------
+Give functionality to (ngSubmit)
+
+example
+<form ngForm #f="ngForm" name="form" (ngSubmit)="submit(f)" autocomplete="off">
+
+-----
+----
+</form>
+
+step 6   in ts give functionality
+=======
+submit(form:NgForm):void
+  {
+    console.log(form.value)
+  }
+
+
